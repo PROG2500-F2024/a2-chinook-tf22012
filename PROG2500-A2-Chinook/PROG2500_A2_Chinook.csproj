@@ -29,10 +29,6 @@
   </ItemGroup>
 
   <ItemGroup>
-    <Folder Include="Pages\" />
-  </ItemGroup>
-
-  <ItemGroup>
     <Resource Include="Images\albums.png">
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
     </Resource>

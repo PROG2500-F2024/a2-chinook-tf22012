@@ -19,25 +19,25 @@
     <DockPanel>
         <Menu DockPanel.Dock="Top">
             <MenuItem Header="File">
-                <MenuItem x:Name="Exit" Header="_Exit"></MenuItem>
+                <MenuItem x:Name="Exit" Header="_Exit" Click="Exit_Click"></MenuItem>
             </MenuItem>
             <MenuItem Header="Pages">
-                <MenuItem x:Name="Home" Header="_Home" >
+                <MenuItem x:Name="Home" Header="_Home" Click="Home_Click">
                     <MenuItem.Icon>
                         <Image Source="{StaticResource homeImage}"></Image>
                     </MenuItem.Icon>
                 </MenuItem>
-                <MenuItem x:Name="Artists" Header="_View Artists" >
+                <MenuItem x:Name="Artists" Header="_View Artists" Click="Artists_Click">
                     <MenuItem.Icon>
                         <Image Source="{StaticResource artistsImage}"></Image>
                     </MenuItem.Icon>
                 </MenuItem>
-                <MenuItem x:Name="Albums" Header="_View Albums" >
+                <MenuItem x:Name="Albums" Header="_View Albums" Click="Albums_Click">
                     <MenuItem.Icon>
                         <Image Source="{StaticResource albumsImage}"></Image>
                     </MenuItem.Icon>
                 </MenuItem>
-                <MenuItem x:Name="Tracks" Header="_View Tracks" >
+                <MenuItem x:Name="Tracks" Header="_View Tracks" Click="Tracks_Click">
                     <MenuItem.Icon>
                         <Image Source="{StaticResource tracksImage}"></Image>
                     </MenuItem.Icon>
@@ -46,21 +46,23 @@
         </Menu>
         <ToolBar DockPanel.Dock="Left">
             <StackPanel Orientation="Vertical" Width="50">
-                <Button x:Name="HomeBtn" ToolTip="Go to Home" >
+                <Button x:Name="HomeBtn" ToolTip="Go to Home" Click="Home_Click">
                     <Image Source="{StaticResource homeImage}"></Image>
                 </Button>
-                <Button x:Name="ArtistsBtn" ToolTip="View Artists" >
+                <Button x:Name="ArtistsBtn" ToolTip="View Artists" Click="Artists_Click">
                     <Image Source="{StaticResource artistsImage}"></Image>
                 </Button>
-                <Button x:Name="AlbumsBtn" ToolTip="View Albums" >
+                <Button x:Name="AlbumsBtn" ToolTip="View Albums" Click="Albums_Click">
                     <Image Source="{StaticResource albumsImage}"></Image>
                 </Button>
-                <Button x:Name="TracksBtn" ToolTip="View Tracks" >
+                <Button x:Name="TracksBtn" ToolTip="View Tracks" Click="Tracks_Click">
                     <Image Source="{StaticResource tracksImage}"></Image>
                 </Button>
             </StackPanel>
         </ToolBar>
+        <Frame x:Name="mainFrame" DockPanel.Dock="Bottom" Width="auto" Height="auto" NavigationUIVisibility="Hidden">
 
+        </Frame>
     </DockPanel>
     
 </Window>

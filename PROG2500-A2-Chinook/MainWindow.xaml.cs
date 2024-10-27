@@ -1,4 +1,5 @@
-﻿using System;
+﻿using PROG2500_A2_Chinook.Pages;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
@@ -23,6 +24,7 @@ namespace PROG2500_A2_Chinook
         public MainWindow()
         {
             InitializeComponent();
+            mainFrame.Navigate(new HomePage());
         }
 
         private void Exit_Click(object sender, RoutedEventArgs e)

@@ -1,4 +1,8 @@
-﻿using System;
+﻿/*
+    Connection String:
+    scaffold-dbcontext "Data Source=(localdb)\MSSQLLocalDB;Initial Catalog=Chinook;Integrated Security=True;Trust Server Certificate=False;" Microsoft.EntityFrameworkCore.SqlServer -contextdir Data -outputdir Models/Generated -contextnamespace PROG2500_A2_Chinook.Data -namespace PROG2500_A2_Chinook.Models -force
+*/
+using System;
 using System.Collections.Generic;
 using Microsoft.EntityFrameworkCore;
 using PROG2500_A2_Chinook.Models;

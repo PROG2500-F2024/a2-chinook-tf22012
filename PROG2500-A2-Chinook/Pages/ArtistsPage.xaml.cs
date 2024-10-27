@@ -1,4 +1,6 @@
-﻿using System;
+﻿using Microsoft.EntityFrameworkCore;
+using PROG2500_A2_Chinook.Data;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
@@ -20,9 +22,21 @@ namespace PROG2500_A2_Chinook.Pages
     /// </summary>
     public partial class ArtistsPage : Page
     {
+        ChinookContext context = new ChinookContext();
+        CollectionViewSource artistsViewSource = new CollectionViewSource();
+
         public ArtistsPage()
         {
             InitializeComponent();
+
+            //Tie the markup viewsource object to the C# code viewsource object
+            artistsViewSource = (CollectionViewSource)FindResource(nameof(artistsViewSource));
+
+            //Use the dbContext to tell EF to load the data we want to use on this page.
+            context.Artists.Load();
+
+            //Set the viewsource data source to use the artists data collection (dbset)
+            artistsViewSource.Source = context.Artists.Local.ToObservableCollection();
         }
     }
 }

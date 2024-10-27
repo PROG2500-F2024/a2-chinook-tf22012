@@ -44,5 +44,23 @@
                 </MenuItem>
             </MenuItem>
         </Menu>
+        <ToolBar DockPanel.Dock="Left">
+            <StackPanel Orientation="Vertical" Width="50">
+                <Button x:Name="HomeBtn" ToolTip="Go to Home" >
+                    <Image Source="{StaticResource homeImage}"></Image>
+                </Button>
+                <Button x:Name="ArtistsBtn" ToolTip="View Artists" >
+                    <Image Source="{StaticResource artistsImage}"></Image>
+                </Button>
+                <Button x:Name="AlbumsBtn" ToolTip="View Albums" >
+                    <Image Source="{StaticResource albumsImage}"></Image>
+                </Button>
+                <Button x:Name="TracksBtn" ToolTip="View Tracks" >
+                    <Image Source="{StaticResource tracksImage}"></Image>
+                </Button>
+            </StackPanel>
+        </ToolBar>
+
     </DockPanel>
+    
 </Window>

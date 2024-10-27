@@ -6,7 +6,43 @@
         xmlns:local="clr-namespace:PROG2500_A2_Chinook"
         mc:Ignorable="d"
         Title="Chinook Music Store" Height="650" Width="900">
-    <Grid>
 
-    </Grid>
+    <Window.Resources>
+        <ResourceDictionary>
+            <BitmapImage x:Key="homeImage" UriSource="/Images/home.png"></BitmapImage>
+            <BitmapImage x:Key="albumsImage" UriSource="/Images/albums.png"></BitmapImage>
+            <BitmapImage x:Key="artistsImage" UriSource="/Images/artists.png"></BitmapImage>
+            <BitmapImage x:Key="tracksImage" UriSource="/Images/tracks.png"></BitmapImage>
+        </ResourceDictionary>
+    </Window.Resources>
+
+    <DockPanel>
+        <Menu DockPanel.Dock="Top">
+            <MenuItem Header="File">
+                <MenuItem x:Name="Exit" Header="_Exit"></MenuItem>
+            </MenuItem>
+            <MenuItem Header="Pages">
+                <MenuItem x:Name="Home" Header="_Home" >
+                    <MenuItem.Icon>
+                        <Image Source="{StaticResource homeImage}"></Image>
+                    </MenuItem.Icon>
+                </MenuItem>
+                <MenuItem x:Name="Artists" Header="_View Artists" >
+                    <MenuItem.Icon>
+                        <Image Source="{StaticResource artistsImage}"></Image>
+                    </MenuItem.Icon>
+                </MenuItem>
+                <MenuItem x:Name="Albums" Header="_View Albums" >
+                    <MenuItem.Icon>
+                        <Image Source="{StaticResource albumsImage}"></Image>
+                    </MenuItem.Icon>
+                </MenuItem>
+                <MenuItem x:Name="Tracks" Header="_View Tracks" >
+                    <MenuItem.Icon>
+                        <Image Source="{StaticResource tracksImage}"></Image>
+                    </MenuItem.Icon>
+                </MenuItem>
+            </MenuItem>
+        </Menu>
+    </DockPanel>
 </Window>

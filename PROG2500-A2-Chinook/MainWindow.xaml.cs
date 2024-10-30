@@ -24,6 +24,7 @@ namespace PROG2500_A2_Chinook
         public MainWindow()
         {
             InitializeComponent();
+            // Set HomePage as default
             mainFrame.Navigate(new HomePage());
         }
 

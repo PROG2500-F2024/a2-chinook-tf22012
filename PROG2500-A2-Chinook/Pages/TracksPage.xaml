@@ -8,7 +8,32 @@
       d:DesignHeight="450" d:DesignWidth="800"
       Title="TracksPage">
 
-    <Grid>
+    <Page.Resources>
+        <CollectionViewSource x:Key="tracksViewSource"></CollectionViewSource>
+    </Page.Resources>
+
+    <StackPanel>
         <TextBlock FontSize="60">Tracks Page</TextBlock>
-    </Grid>
+        <ScrollViewer Height="370">
+            <ListView ItemsSource="{Binding Source={StaticResource tracksViewSource}}">
+                <ListView.ItemTemplate>
+                    <DataTemplate>
+                        <StackPanel Orientation="Horizontal">
+                            <Border Background="Aqua" BorderThickness="3">
+                                <StackPanel Orientation="Vertical">
+                                    <TextBlock Text="{Binding Name}"></TextBlock>
+                                    <TextBlock Text="{Binding Composer, StringFormat='Composer: {0}', TargetNullValue='None found.'}"></TextBlock>
+                                </StackPanel>
+                            </Border>
+                            <StackPanel Orientation="Vertical">
+                                <TextBlock Text="{Binding Milliseconds, StringFormat='Length: {0}'}"/>
+                                <TextBlock Text="{Binding Bytes, StringFormat='Size: {0}'}"/>
+                                <TextBlock Text="{Binding UnitPrice, StringFormat='Price: {0}'}"/>
+                            </StackPanel>
+                        </StackPanel>
+                    </DataTemplate>
+                </ListView.ItemTemplate>
+            </ListView>
+        </ScrollViewer>
+    </StackPanel>
 </Page>

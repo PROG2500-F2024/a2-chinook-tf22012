@@ -22,13 +22,13 @@
                             <Border Background="Aqua" BorderThickness="3">
                                 <StackPanel Orientation="Vertical">
                                     <TextBlock Text="{Binding Name}"></TextBlock>
-                                    <TextBlock Text="{Binding Composer, StringFormat='Composer: {0}', TargetNullValue='None found.'}"></TextBlock>
+                                    <TextBlock Text="{Binding FormattedComposer}"></TextBlock>
                                 </StackPanel>
                             </Border>
                             <StackPanel Orientation="Vertical">
-                                <TextBlock Text="{Binding Milliseconds, StringFormat='Length: {0}'}"/>
-                                <TextBlock Text="{Binding Bytes, StringFormat='Size: {0}'}"/>
-                                <TextBlock Text="{Binding UnitPrice, StringFormat='Price: {0}'}"/>
+                                <TextBlock Text="{Binding FormattedLength}"/>
+                                <TextBlock Text="{Binding FormattedBytes}"/>
+                                <TextBlock Text="{Binding FormattedPrice}"/>
                             </StackPanel>
                         </StackPanel>
                     </DataTemplate>

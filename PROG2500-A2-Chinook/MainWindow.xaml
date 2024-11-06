@@ -7,63 +7,105 @@
         mc:Ignorable="d"
         Title="Chinook Music Store" Height="650" Width="900">
 
+    <!-- Dark gray gradient background for the main window -->
+    <Window.Background>
+        <LinearGradientBrush StartPoint="0,0" EndPoint="0,1">
+            <GradientStop Color="#333333" Offset="0.0"/>
+            <GradientStop Color="#1a1a1a" Offset="1.0"/>
+        </LinearGradientBrush>
+    </Window.Background>
+
     <Window.Resources>
         <ResourceDictionary>
-            <BitmapImage x:Key="homeImage" UriSource="/Images/home.png"></BitmapImage>
-            <BitmapImage x:Key="albumsImage" UriSource="/Images/albums.png"></BitmapImage>
-            <BitmapImage x:Key="artistsImage" UriSource="/Images/artists.png"></BitmapImage>
-            <BitmapImage x:Key="tracksImage" UriSource="/Images/tracks.png"></BitmapImage>
+            <!-- Style for Buttons with an orange background and black border -->
+            <Style TargetType="Button">
+                <Setter Property="Background" Value="#FF5733"/>
+                <Setter Property="BorderBrush" Value="Black"/>
+                <Setter Property="BorderThickness" Value="2"/>
+                <Setter Property="Margin" Value="5"/>
+            </Style>
+            
+            <!-- Style for Menu Items -->
+            <Style TargetType="MenuItem">
+                <Setter Property="Foreground" Value="#f8f9fa"/>
+                <Setter Property="Background" Value="#606060"/>
+                <Setter Property="BorderBrush" Value="#404040"/>
+                <Setter Property="BorderThickness" Value="2"/>
+            </Style>
+
+            <!-- Off-gray gradient background for the sidebar -->
+            <LinearGradientBrush x:Key="SidebarBackgroundBrush" StartPoint="0,0" EndPoint="0,1">
+                <GradientStop Color="#606060" Offset="0.0"/>
+                <GradientStop Color="#404040" Offset="1.0"/>
+            </LinearGradientBrush>
+
+            <!-- Image recources -->
+            <BitmapImage x:Key="homeImage" UriSource="/Images/home.png"/>
+            <BitmapImage x:Key="albumsImage" UriSource="/Images/albums.png"/>
+            <BitmapImage x:Key="artistsImage" UriSource="/Images/artists.png"/>
+            <BitmapImage x:Key="tracksImage" UriSource="/Images/tracks.png"/>
         </ResourceDictionary>
     </Window.Resources>
 
     <DockPanel>
-        <Menu DockPanel.Dock="Top">
+        <!-- Menu with the same gray gradient background -->
+        <Menu DockPanel.Dock="Top" Background="{StaticResource SidebarBackgroundBrush}">
             <MenuItem Header="File">
-                <MenuItem x:Name="Exit" Header="_Exit" Click="Exit_Click"></MenuItem>
+                <MenuItem x:Name="Exit" Header="_Exit" Click="Exit_Click"/>
             </MenuItem>
             <MenuItem Header="Pages">
                 <MenuItem x:Name="Home" Header="_Home" Click="Home_Click">
                     <MenuItem.Icon>
-                        <Image Source="{StaticResource homeImage}"></Image>
+                        <Border Background="#FF5733" CornerRadius="2">
+                            <!-- Orange background with slight rounding -->
+                            <Image Source="{StaticResource homeImage}" />
+                        </Border>
                     </MenuItem.Icon>
                 </MenuItem>
                 <MenuItem x:Name="Artists" Header="_View Artists" Click="Artists_Click">
                     <MenuItem.Icon>
-                        <Image Source="{StaticResource artistsImage}"></Image>
+                        <Border Background="#FF5733" CornerRadius="2">
+                            <Image Source="{StaticResource artistsImage}"/>
+                        </Border>
                     </MenuItem.Icon>
                 </MenuItem>
                 <MenuItem x:Name="Albums" Header="_View Albums" Click="Albums_Click">
                     <MenuItem.Icon>
-                        <Image Source="{StaticResource albumsImage}"></Image>
+                        <Border Background="#FF5733" CornerRadius="2">
+                            <Image Source="{StaticResource albumsImage}" />
+                        </Border>
                     </MenuItem.Icon>
                 </MenuItem>
                 <MenuItem x:Name="Tracks" Header="_View Tracks" Click="Tracks_Click">
                     <MenuItem.Icon>
-                        <Image Source="{StaticResource tracksImage}"></Image>
+                        <Border Background="#FF5733" CornerRadius="2">
+                            <Image Source="{StaticResource tracksImage}"/>
+                        </Border>
                     </MenuItem.Icon>
                 </MenuItem>
             </MenuItem>
         </Menu>
-        <ToolBar DockPanel.Dock="Left">
+
+        <!-- Sidebar with gradient background for ToolBar -->
+        <ToolBar DockPanel.Dock="Left" Background="{StaticResource SidebarBackgroundBrush}">
             <StackPanel Orientation="Vertical" Width="50">
                 <Button x:Name="HomeBtn" ToolTip="Go to Home" Click="Home_Click">
-                    <Image Source="{StaticResource homeImage}"></Image>
+                    <Image Source="{StaticResource homeImage}"/>
                 </Button>
                 <Button x:Name="ArtistsBtn" ToolTip="View Artists" Click="Artists_Click">
-                    <Image Source="{StaticResource artistsImage}"></Image>
+                    <Image Source="{StaticResource artistsImage}"/>
                 </Button>
                 <Button x:Name="AlbumsBtn" ToolTip="View Albums" Click="Albums_Click">
-                    <Image Source="{StaticResource albumsImage}"></Image>
+                    <Image Source="{StaticResource albumsImage}"/>
                 </Button>
                 <Button x:Name="TracksBtn" ToolTip="View Tracks" Click="Tracks_Click">
-                    <Image Source="{StaticResource tracksImage}"></Image>
+                    <Image Source="{StaticResource tracksImage}"/>
                 </Button>
             </StackPanel>
         </ToolBar>
-        <Frame x:Name="mainFrame" DockPanel.Dock="Bottom" Width="auto" Height="auto" NavigationUIVisibility="Hidden">
-        </Frame>
+
+        <Frame x:Name="mainFrame" DockPanel.Dock="Bottom" Width="auto" Height="auto" NavigationUIVisibility="Hidden"/>
     </DockPanel>
-    
 </Window>
 
 

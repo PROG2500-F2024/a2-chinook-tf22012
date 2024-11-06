@@ -20,7 +20,7 @@
                     <DataTemplate>
                         <StackPanel Orientation="Horizontal">
                             <Border Background="Aqua" BorderThickness="3">
-                                <StackPanel Orientation="Vertical">
+                                <StackPanel Orientation="Vertical" HorizontalAlignment="Left">
                                     <TextBlock Text="{Binding Name}"></TextBlock>
                                     <TextBlock Text="{Binding FormattedComposer}"></TextBlock>
                                 </StackPanel>

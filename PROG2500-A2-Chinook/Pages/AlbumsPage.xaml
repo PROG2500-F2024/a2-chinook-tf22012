@@ -35,6 +35,7 @@
             <Setter Property="Foreground" Value="#f8f9fa"/>
         </Style>
 
+        <!-- Style for Title Text Box-->
         <Style TargetType="TextBlock">
             <Setter Property="FontSize" Value="25"/>
             <Setter Property="Padding" Value="5"/>

@@ -9,31 +9,42 @@
       Title="TracksPage">
 
     <Page.Resources>
+        <!-- Style for Title Text Box-->
+        <Style TargetType="TextBlock">
+            <Setter Property="FontSize" Value="25"/>
+            <Setter Property="Padding" Value="5"/>
+            <Setter Property="Foreground" Value="#f8f9fa"/>
+        </Style>
+
+        <!-- Style for ListView -->
+        <Style TargetType="ListView">
+            <Setter Property="Background" Value="#404040"/>
+            <Setter Property="Foreground" Value="#f8f9fa"/>
+        </Style>
+        
         <CollectionViewSource x:Key="tracksViewSource"></CollectionViewSource>
     </Page.Resources>
 
     <StackPanel>
-        <TextBlock FontSize="60">Tracks Page</TextBlock>
-        <ScrollViewer Height="370">
-            <ListView ItemsSource="{Binding Source={StaticResource tracksViewSource}}">
-                <ListView.ItemTemplate>
-                    <DataTemplate>
-                        <StackPanel Orientation="Horizontal">
-                            <Border Background="Aqua" BorderThickness="3">
-                                <StackPanel Orientation="Vertical" HorizontalAlignment="Left">
-                                    <TextBlock Text="{Binding Name}"></TextBlock>
-                                    <TextBlock Text="{Binding FormattedComposer}"></TextBlock>
-                                </StackPanel>
-                            </Border>
-                            <StackPanel Orientation="Vertical">
-                                <TextBlock Text="{Binding FormattedLength}"/>
-                                <TextBlock Text="{Binding FormattedBytes}"/>
-                                <TextBlock Text="{Binding FormattedPrice}"/>
-                            </StackPanel>
+        <TextBlock>ChinookTracks</TextBlock>
+        <ListView ItemsSource="{Binding Source={StaticResource tracksViewSource}}" Height="600">
+            <ListView.ItemTemplate>
+                <DataTemplate>
+                    <Border BorderBrush="#FF5733" BorderThickness="2" Padding="10" CornerRadius="5">
+                    <StackPanel Orientation="Horizontal">
+                        <StackPanel Orientation="Vertical" HorizontalAlignment="Left" Width="600">
+                            <TextBlock Text="{Binding Name}" FontSize="15" FontWeight="Bold"/>
+                            <TextBlock Text="{Binding FormattedComposer}"/>
                         </StackPanel>
-                    </DataTemplate>
-                </ListView.ItemTemplate>
-            </ListView>
-        </ScrollViewer>
+                        <StackPanel Orientation="Vertical">
+                            <TextBlock Text="{Binding FormattedLength}"/>
+                            <TextBlock Text="{Binding FormattedBytes}"/>
+                            <TextBlock Text="{Binding FormattedPrice}"/>
+                        </StackPanel>
+                    </StackPanel>
+                    </Border>
+                </DataTemplate>
+            </ListView.ItemTemplate>
+        </ListView>
     </StackPanel>
 </Page>

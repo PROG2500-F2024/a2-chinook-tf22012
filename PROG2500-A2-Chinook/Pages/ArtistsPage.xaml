@@ -35,11 +35,17 @@
             <Setter Property="Foreground" Value="#f8f9fa"/>
         </Style>
 
+        <Style TargetType="TextBlock">
+            <Setter Property="FontSize" Value="25"/>
+            <Setter Property="Padding" Value="5"/>
+            <Setter Property="Foreground" Value="#f8f9fa"/>
+        </Style>
+
         <CollectionViewSource x:Key="artistsViewSource"></CollectionViewSource>
     </Page.Resources>
 
     <StackPanel>
-        <TextBlock FontSize="25" Foreground="White">Chinook Artists</TextBlock>
+        <TextBlock>Chinook Artists</TextBlock>
         <DataGrid ItemsSource="{Binding Source={StaticResource artistsViewSource}}"
                   AutoGenerateColumns="False"
                   Height="600">

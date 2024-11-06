@@ -39,7 +39,7 @@
                 <GradientStop Color="#404040" Offset="1.0"/>
             </LinearGradientBrush>
 
-            <!-- Image recources -->
+            <!-- Image Recources -->
             <BitmapImage x:Key="homeImage" UriSource="/Images/home.png"/>
             <BitmapImage x:Key="albumsImage" UriSource="/Images/albums.png"/>
             <BitmapImage x:Key="artistsImage" UriSource="/Images/artists.png"/>

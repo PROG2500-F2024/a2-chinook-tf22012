@@ -19,7 +19,7 @@
                     </LinearGradientBrush>
                 </Setter.Value>
             </Setter>
-            <Setter Property="Foreground" Value="White"/>
+            <Setter Property="Foreground" Value="#f8f9fa"/>
             <Setter Property="Padding" Value="5" />
         </Style>
 

@@ -3,7 +3,7 @@ Microsoft Visual Studio Solution File, Format Version 12.00
 # Visual Studio Version 17
 VisualStudioVersion = 17.5.33414.496
 MinimumVisualStudioVersion = 10.0.40219.1
-Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "PROG2500_A2_Chinook", "PROG2500-A2-Chinook\PROG2500_A2_Chinook.csproj", "{12B7C872-79C5-436B-AEF9-891D6C57057D}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "PROG2500_A3_Chinook", "PROG2500-A2-Chinook\PROG2500_A3_Chinook.csproj", "{12B7C872-79C5-436B-AEF9-891D6C57057D}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution

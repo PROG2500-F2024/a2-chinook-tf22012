@@ -44,6 +44,7 @@
             <BitmapImage x:Key="albumsImage" UriSource="/Images/albums.png"/>
             <BitmapImage x:Key="artistsImage" UriSource="/Images/artists.png"/>
             <BitmapImage x:Key="tracksImage" UriSource="/Images/tracks.png"/>
+            <BitmapImage x:Key="musicCatalogImage" UriSource="/Images/music-catalog.png"/>
         </ResourceDictionary>
     </Window.Resources>
 
@@ -57,7 +58,6 @@
                 <MenuItem x:Name="Home" Header="_Home" Click="Home_Click">
                     <MenuItem.Icon>
                         <Border Background="#FF5733" CornerRadius="2">
-                            <!-- Orange background with slight rounding -->
                             <Image Source="{StaticResource homeImage}" />
                         </Border>
                     </MenuItem.Icon>
@@ -83,6 +83,13 @@
                         </Border>
                     </MenuItem.Icon>
                 </MenuItem>
+                <MenuItem x:Name="MusicCatalog" Header="_Music Catalog" Click="MusicCatalog_Click">
+                    <MenuItem.Icon>
+                        <Border Background="#FF5733" CornerRadius="2">
+                            <Image Source="{StaticResource musicCatalogImage}" />
+                        </Border>
+                    </MenuItem.Icon>
+                </MenuItem>
             </MenuItem>
         </Menu>
 
@@ -101,6 +108,9 @@
                 <Button x:Name="TracksBtn" ToolTip="View Tracks" Click="Tracks_Click">
                     <Image Source="{StaticResource tracksImage}"/>
                 </Button>
+                <Button x:Name="MusicCatalogBtn" ToolTip="View Music Catalogs" Click="MusicCatalog_Click">
+                    <Image Source="{StaticResource musicCatalogImage}"/>
+                </Button>
             </StackPanel>
         </ToolBar>
 
@@ -116,4 +126,5 @@
     Album Icon - https://www.flaticon.com/free-icon/album_727233?term=albums&page=1&position=7&origin=search&related_id=727233
     Track Icon - https://www.flaticon.com/free-icon/sound_8669725?term=music+tracks&page=1&position=5&origin=search&related_id=8669725
     Search Icon - https://www.flaticon.com/free-icon/search_149852?term=search&page=1&position=2&origin=search&related_id=149852
+    Music Catalog Icon - https://www.flaticon.com/free-icon/music-folder_12064340?term=music+catalog&page=1&position=11&origin=search&related_id=12064340
 -->

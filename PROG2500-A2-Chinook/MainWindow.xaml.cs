@@ -52,5 +52,10 @@ namespace PROG2500_A2_Chinook
         {
             mainFrame.NavigationService.Navigate(new Pages.TracksPage());
         }
+
+        private void MusicCatalog_Click(object sender, RoutedEventArgs e)
+        {
+            mainFrame.NavigationService.Navigate(new Pages.MusicCatalogPage());
+        }
     }
 }

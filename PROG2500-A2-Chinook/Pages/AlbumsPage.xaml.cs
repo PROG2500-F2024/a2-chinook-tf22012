@@ -45,7 +45,7 @@ namespace PROG2500_A2_Chinook.Pages
             var albumQuery =
                from album in _context.Albums
                where album.Title.Contains(albumSearchBox.Text)
-               orderby album.Title
+               orderby album.AlbumId
                select album;
 
             albumsViewSource.Source = albumQuery.ToList();

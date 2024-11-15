@@ -22,7 +22,7 @@ namespace PROG2500_A2_Chinook.Pages
     /// </summary>
     public partial class TracksPage : Page
     {
-        ChinookContext context = new ChinookContext();
+        ChinookContext _context = new ChinookContext();
         CollectionViewSource tracksViewSource = new CollectionViewSource();
         public TracksPage()
         {
@@ -32,10 +32,21 @@ namespace PROG2500_A2_Chinook.Pages
             tracksViewSource = (CollectionViewSource)FindResource(nameof(tracksViewSource));
 
             //Use the dbContext to tell EF to load the data we want to use on this page.
-            context.Tracks.Load();
+            _context.Tracks.Load();
 
             //Set the viewsource data source to use the artists data collection (dbset)
-            tracksViewSource.Source = context.Tracks.Local.ToObservableCollection();
+            tracksViewSource.Source = _context.Tracks.Local.ToObservableCollection();
+        }
+
+        private void SearchBtn_Click(object sender, RoutedEventArgs e)
+        {
+            var trackQuery =
+               from track in _context.Tracks
+               where track.Name.Contains(trackSearchBox.Text)
+               orderby track.TrackId
+               select track;
+
+            tracksViewSource.Source = trackQuery.ToList();
         }
     }
 }

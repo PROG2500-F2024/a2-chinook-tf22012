@@ -45,7 +45,7 @@ namespace PROG2500_A2_Chinook.Pages
             var artistsQuery = 
                from artist in _context.Artists
                where artist.Name.Contains(artistSearchBox.Text)
-               orderby artist.Name
+               orderby artist.ArtistId
                select artist;
 
             artistsViewSource.Source = artistsQuery.ToList();

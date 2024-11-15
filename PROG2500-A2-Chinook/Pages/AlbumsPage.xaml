@@ -9,6 +9,12 @@
       Title="AlbumsPage">
 
     <Page.Resources>
+        <!-- Style for the Data Grid -->
+        <Style TargetType="DataGrid">
+            <Setter Property="Height" Value="600"/>
+            <Setter Property="Background" Value="#404040"/>
+        </Style>
+
         <!-- Gradient for DataGrid column headers -->
         <Style TargetType="DataGridColumnHeader">
             <Setter Property="Background">
@@ -35,25 +41,62 @@
             <Setter Property="Foreground" Value="#f8f9fa"/>
         </Style>
 
-        <!-- Style for Title Text Box-->
+        <!-- Style for Title Text Block -->
         <Style TargetType="TextBlock">
             <Setter Property="FontSize" Value="25"/>
+            <Setter Property="FontWeight" Value="Bold"/>
             <Setter Property="Padding" Value="5"/>
             <Setter Property="Foreground" Value="#f8f9fa"/>
         </Style>
         
+        <!-- Style for Search Text Box -->
+        <Style TargetType="TextBox">
+            <Setter Property="Width" Value="250"/>
+            <Setter Property="Height" Value="30"/>
+            <Setter Property="FontSize" Value="20"/>
+            <Setter Property="FontWeight" Value="Light"/>
+            <Setter Property="Margin" Value="0,0,5,0"/>
+        </Style>
+
+        <!-- Style for Search Button -->
+        <Style TargetType="Button">
+            <Setter Property="Background" Value="#FF5733"/>
+            <Setter Property="Width" Value="30"/>
+            <Setter Property="Height" Value="30"/>
+            <Setter Property="Padding" Value="2"/>
+            <Setter Property="Margin" Value="0,0,5,0"/>
+            <Setter Property="VerticalAlignment" Value="Center"/>
+        </Style>
+
+        <BitmapImage x:Key="searchImage" UriSource="../Images/search.png"/>
+
         <CollectionViewSource x:Key="albumsViewSource"></CollectionViewSource>
     </Page.Resources>
 
     <StackPanel>
-        <TextBlock>Chinook Albums</TextBlock>
-            <DataGrid ItemsSource="{Binding Source={StaticResource albumsViewSource}}"
-                AutoGenerateColumns="False"
-                Height="600">
-                <DataGrid.Columns>
-                    <DataGridTextColumn Binding="{Binding AlbumId}" Header="ID"></DataGridTextColumn>
-                    <DataGridTextColumn Binding="{Binding Title}" Header="Album Name"></DataGridTextColumn>
-                </DataGrid.Columns>
-            </DataGrid>
+        <Grid>
+            <Grid.ColumnDefinitions>
+                <ColumnDefinition Width="*" />
+                <ColumnDefinition Width="Auto" />
+            </Grid.ColumnDefinitions>
+
+            <!-- Left side: Chinook Albums TextBlock -->
+            <TextBlock Text="Chinook Albums" Grid.Column="0" VerticalAlignment="Center"/>
+
+            <!-- Right side: Search Albums section -->
+            <StackPanel Orientation="Horizontal" Grid.Column="1">
+                <TextBox x:Name="albumSearchBox"/>
+                <Button Click="SearchBtn_Click">
+                    <Image Source="{StaticResource searchImage}" />
+                </Button>
+            </StackPanel>
+        </Grid>
+        <DataGrid ItemsSource="{Binding Source={StaticResource albumsViewSource}}"
+            AutoGenerateColumns="False">
+            <DataGrid.Columns>
+                <DataGridTextColumn Binding="{Binding AlbumId}" Header="ID"></DataGridTextColumn>
+                <DataGridTextColumn Binding="{Binding Title}" Header="Album Name"></DataGridTextColumn>
+            </DataGrid.Columns>
+        </DataGrid>
     </StackPanel>
 </Page>

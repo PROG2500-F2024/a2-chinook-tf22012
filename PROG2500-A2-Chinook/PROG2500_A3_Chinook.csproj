@@ -12,6 +12,7 @@
     <None Remove="Images\albums.png" />
     <None Remove="Images\artists.png" />
     <None Remove="Images\home.png" />
+    <None Remove="Images\search.png" />
     <None Remove="Images\tracks.png" />
   </ItemGroup>
 
@@ -36,6 +37,9 @@
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
     </Resource>
     <Resource Include="Images\home.png">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Resource>
+    <Resource Include="Images\search.png">
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
     </Resource>
     <Resource Include="Images\tracks.png">

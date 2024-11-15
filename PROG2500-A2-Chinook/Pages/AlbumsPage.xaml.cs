@@ -14,6 +14,7 @@ using System.Windows.Media;
 using System.Windows.Media.Imaging;
 using System.Windows.Navigation;
 using System.Windows.Shapes;
+using Windows.UI;
 
 namespace PROG2500_A2_Chinook.Pages
 {
@@ -22,7 +23,7 @@ namespace PROG2500_A2_Chinook.Pages
     /// </summary>
     public partial class AlbumsPage : Page
     {
-        ChinookContext context = new ChinookContext();
+        ChinookContext _context = new ChinookContext();
         CollectionViewSource albumsViewSource = new CollectionViewSource();
 
         public AlbumsPage()
@@ -33,10 +34,21 @@ namespace PROG2500_A2_Chinook.Pages
             albumsViewSource = (CollectionViewSource)FindResource(nameof(albumsViewSource));
 
             //Use the dbContext to tell EF to load the data we want to use on this page.
-            context.Albums.Load();
+            _context.Albums.Load();
 
             //Set the viewsource data source to use the album data collection (dbset)
-            albumsViewSource.Source = context.Albums.Local.ToObservableCollection();
+            albumsViewSource.Source = _context.Albums.Local.ToObservableCollection();
+        }
+
+        private void SearchBtn_Click(object sender, RoutedEventArgs e)
+        {
+            var albumQuery =
+               from album in _context.Albums
+               where album.Title.Contains(albumSearchBox.Text)
+               orderby album.Title
+               select album;
+
+            albumsViewSource.Source = albumQuery.ToList();
         }
     }
 }

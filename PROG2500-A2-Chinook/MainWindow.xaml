@@ -108,7 +108,7 @@
                 <Button x:Name="TracksBtn" ToolTip="View Tracks" Click="Tracks_Click">
                     <Image Source="{StaticResource tracksImage}"/>
                 </Button>
-                <Button x:Name="MusicCatalogBtn" ToolTip="View Music Catalogs" Click="MusicCatalog_Click">
+                <Button x:Name="MusicCatalogBtn" ToolTip="View Music Catalog" Click="MusicCatalog_Click">
                     <Image Source="{StaticResource musicCatalogImage}"/>
                 </Button>
             </StackPanel>

@@ -38,7 +38,9 @@
         </Style>
 
         <BitmapImage x:Key="searchImage" UriSource="../Images/search.png"/>
-        
+
+        <CollectionViewSource x:Key="catalogViewSource" />
+
     </Page.Resources>
     
     <StackPanel>
@@ -49,15 +51,62 @@
             </Grid.ColumnDefinitions>
 
             <!-- Left side: Chinook Albums TextBlock -->
-            <TextBlock Text="Chinook Artists" Grid.Column="0" VerticalAlignment="Center"/>
+            <TextBlock Text="Music Catalog" Grid.Column="0" VerticalAlignment="Center"/>
 
             <!-- Right side: Search Albums section -->
             <StackPanel Orientation="Horizontal" Grid.Column="1">
-                <TextBox x:Name="artistSearchBox"/>
+                <TextBox x:Name="catalogSearchBox"/>
                 <Button Click="SearchBtn_Click">
-                    <Image Source="{StaticResource searchImage}" />
+                    <Image Source="{ StaticResource searchImage }" />
                 </Button>
             </StackPanel>
         </Grid>
+        <!-- Top-Level Listview is for the GROUPED artists in alphabetic order  -->
+        <ListView x:Name="catalogListView"
+                  ScrollViewer.VerticalScrollBarVisibility="Visible" ScrollViewer.CanContentScroll="True" 
+                  Height="550">
+            <ListView.ItemTemplate>
+                <DataTemplate>
+                    <StackPanel Orientation="Horizontal">
+                        <TextBlock Text="{ Binding HeaderText }" />
+                        <!-- 2nd-Level Listview is for artists -->
+                        <Expander Header="View Artists">    
+                            <ListView ItemsSource="{ Binding artists }">
+                                <ListView.ItemTemplate>
+                                    <DataTemplate>
+                                        <StackPanel Orientation="Horizontal">
+                                            <TextBlock Text="{ Binding Name }" />
+                                            <!-- 3rd-Level Listview for artist's albums -->
+                                            <Expander Header="View Albums">
+                                                <ListView ItemsSource="{ Binding Albums }">
+                                                    <ListView.ItemTemplate>
+                                                        <DataTemplate DataType="local:Album">
+                                                            <StackPanel Orientation="Horizontal">
+                                                                <TextBlock Text="{ Binding Title }" />
+                                                                <Expander Header="View Tracks">
+                                                                    <ListView ItemsSource="{ Binding Tracks }">
+                                                                        <ListView.ItemTemplate>
+                                                                            <DataTemplate DataType="local:Track">
+                                                                                <StackPanel Orientation="Horizontal">
+                                                                                    <TextBlock Text="{ Binding Name }" />
+                                                                                </StackPanel>
+                                                                            </DataTemplate>
+                                                                        </ListView.ItemTemplate>
+                                                                    </ListView>
+                                                                </Expander>
+                                                            </StackPanel>
+                                                        </DataTemplate>
+                                                    </ListView.ItemTemplate>
+                                                </ListView>
+                                            </Expander>
+                                        </StackPanel>
+                                    </DataTemplate>
+                                </ListView.ItemTemplate>
+                            </ListView>
+                        </Expander>
+                    </StackPanel>
+                </DataTemplate>
+            </ListView.ItemTemplate>
+        </ListView>
     </StackPanel>
 </Page>

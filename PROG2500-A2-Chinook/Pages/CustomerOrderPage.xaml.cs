@@ -33,7 +33,6 @@ namespace PROG2500_A2_Chinook.Pages
 
             _context.Customers.Load();
             _context.Invoices.Load();
-            _context.InvoiceLines.Load();
 
             customerOrderViewSource.Source = _context.Customers.Local.ToObservableCollection();
 
@@ -54,7 +53,9 @@ namespace PROG2500_A2_Chinook.Pages
                 select new
                 {
                     FullName = $"{customer.FirstName} {customer.LastName}",
-                    City = customer.City,
+                    CityState = string.IsNullOrEmpty(customer.State)
+                        ? customer.City
+                        : $"{customer.City}, {customer.State}",
                     Country = customer.Country,
                     Email = customer.Email,
                     Invoices = customer.Invoices.Select(invoice => new
@@ -62,7 +63,7 @@ namespace PROG2500_A2_Chinook.Pages
                         InvoiceDate = $"Order Date: {invoice.InvoiceDate}",
                         Total = $"Total: ${invoice.Total}",
                         Quantity = $"Quantity: {invoice.InvoiceLines.Count()}"
-                    }).ToList() // Materialize invoices
+                    }).ToList()
                 };
 
             // Execute the query against the database and assign it as the data source for the list view

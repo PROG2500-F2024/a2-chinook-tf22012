@@ -44,7 +44,8 @@
         </Style>
 
         <Style TargetType="Expander">
-            <Setter Property="Foreground" Value="#f8f9fa"/>
+            <Setter Property="Foreground" Value="#FF5733"/>
+            <Setter Property="Height" Value="Auto"/> 
             <Setter Property="FontSize" Value="20" />
         </Style>
 

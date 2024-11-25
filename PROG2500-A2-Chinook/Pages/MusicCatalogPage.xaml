@@ -37,6 +37,18 @@
             <Setter Property="VerticalAlignment" Value="Center"/>
         </Style>
 
+        <Style TargetType="ListView">
+            <Setter Property="Background" Value="#404040"/>
+            <Setter Property="Foreground" Value="#f8f9fa"/>
+            <Setter Property="Height" Value="Auto"/>
+
+        </Style>
+
+        <Style TargetType="Expander">
+            <Setter Property="Foreground" Value="#FF5733"/>
+            <Setter Property="FontSize" Value="20" />
+        </Style>
+
         <BitmapImage x:Key="searchImage" UriSource="../Images/search.png"/>
 
         <CollectionViewSource x:Key="catalogViewSource" />
@@ -67,28 +79,33 @@
                   Height="550">
             <ListView.ItemTemplate>
                 <DataTemplate>
-                    <StackPanel Orientation="Horizontal">
-                        <TextBlock Text="{ Binding HeaderText }" />
+                    <Grid>
+                        <Grid.ColumnDefinitions>
+                            <ColumnDefinition Width="75" />
+                            <ColumnDefinition Width="Auto" />
+                        </Grid.ColumnDefinitions>
+                        <TextBlock Text="{ Binding HeaderText }" FontSize="20" FontWeight="Bold" Grid.Column="0" />
                         <!-- 2nd-Level Listview is for artists -->
-                        <Expander Header="View Artists">    
+                        <Expander Header="View Artists" Grid.Column="1">    
                             <ListView ItemsSource="{ Binding artists }">
                                 <ListView.ItemTemplate>
                                     <DataTemplate>
                                         <StackPanel Orientation="Horizontal">
-                                            <TextBlock Text="{ Binding Name }" />
+                                            <TextBlock Text="{ Binding Name }" FontWeight="Bold" Margin="0, 0, 10, 0" />
                                             <!-- 3rd-Level Listview for artist's albums -->
                                             <Expander Header="View Albums">
                                                 <ListView ItemsSource="{ Binding Albums }">
                                                     <ListView.ItemTemplate>
-                                                        <DataTemplate DataType="local:Album">
+                                                        <DataTemplate>
                                                             <StackPanel Orientation="Horizontal">
-                                                                <TextBlock Text="{ Binding Title }" />
-                                                                <Expander Header="View Tracks">
+                                                                <TextBlock Text="{ Binding Title }" FontWeight="Bold" FontSize="15" Margin="0, 0, 10, 0" />
+                                                                <!-- 4th-Level Listview for album's tracks -->
+                                                                <Expander Header="View Tracks" FontSize="15">
                                                                     <ListView ItemsSource="{ Binding Tracks }">
                                                                         <ListView.ItemTemplate>
-                                                                            <DataTemplate DataType="local:Track">
+                                                                            <DataTemplate>
                                                                                 <StackPanel Orientation="Horizontal">
-                                                                                    <TextBlock Text="{ Binding Name }" />
+                                                                                    <TextBlock Text="{ Binding Name }" FontSize="15"/>
                                                                                 </StackPanel>
                                                                             </DataTemplate>
                                                                         </ListView.ItemTemplate>
@@ -104,7 +121,7 @@
                                 </ListView.ItemTemplate>
                             </ListView>
                         </Expander>
-                    </StackPanel>
+                    </Grid>
                 </DataTemplate>
             </ListView.ItemTemplate>
         </ListView>
